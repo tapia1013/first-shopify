@@ -9,8 +9,8 @@ const ShopContext = React.createContext();
 
 
 const client = Client.buildClient({
-  domain: process.env.REACT_APP_SHOPIFY_DOMAIN,
-  storefrontAccessToken: process.env.REACT_APP_SHOPIFY_API
+  domain: "testingstore1013.myshopify.com",
+  storefrontAccessToken: "004f654e00e8ed20a649c28f54c6821a"
 })
 
 

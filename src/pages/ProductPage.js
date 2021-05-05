@@ -1,5 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { useParams, Link } from 'react-router-dom';
+import { Box, Text, Image, Button, Heading, Flex, Center, Grid } from '@chakra-ui/react'
+
 
 
 import { ShopContext } from '../context/shopContext'
@@ -28,9 +30,21 @@ const ProductPage = () => {
 
 
   return (
-    <div>
-      <h1 key={product.title}>{product.title}</h1>
-    </div>
+    <Box>
+      <Grid templateColumns="repeat(2, 1fr)">
+        <Image src={product.images[0].src} />
+        <Box>
+          <Heading>{product.title}</Heading>
+          <Text>{product.variants[0].price}</Text>
+          <Text>{product.description}</Text>
+          <Button
+            onClick={() => addItemToCheckout(product.variants[0].id, 1)}
+          >
+            Add To Cart
+          </Button>
+        </Box>
+      </Grid>
+    </Box>
   )
 }
 
@@ -38,5 +52,5 @@ export default ProductPage
 
 
 
-
+// advanced video 3 @ 4:22sec
 

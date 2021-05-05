@@ -78,7 +78,7 @@ export class ShopProvider extends Component {
 
 
   // name of product that is compatitble with links
-  fetchProdcutWithHandle = async (handle) => {
+  fetchProductWithHandle = async (handle) => {
     const product = await client.product.fetchByHandle(handle);
     this.setState({ product })
   }
@@ -88,11 +88,11 @@ export class ShopProvider extends Component {
 
 
   closeCart = () => {
-
+    this.setState({ isCartOpen: false })
   }
 
   openCart = () => {
-
+    this.setState({ isCartOpen: true })
   }
 
 
@@ -120,7 +120,7 @@ export class ShopProvider extends Component {
         value={{
           ...this.state,
           fetchAllProducts: this.fetchAllProducts,
-          fetchProdcutWithHandle: this.fetchProdcutWithHandle,
+          fetchProductWithHandle: this.fetchProductWithHandle,
           addItemToCheckout: this.addItemToCheckout,
           removeLineItem: this.removeLineItem,
           closeCart: this.closeCart,

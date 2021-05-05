@@ -113,12 +113,12 @@ export class ShopProvider extends Component {
 
 
   closeMenu = () => {
-
+    this.setState({ isMenuOpen: false })
   }
 
 
   openMenu = () => {
-
+    this.setState({ isMenuOpen: true })
   }
 
 

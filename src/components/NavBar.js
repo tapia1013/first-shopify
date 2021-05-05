@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ShopContext } from '../context/shopContext';
-import { Flex, Box, Icon, Image, Text } from '@chakra-ui/react'
+import { Flex, Box, Icon, Image, Text, Badge } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
 
 import { MdMenu, MdShoppingBasket } from 'react-icons/md'
@@ -15,6 +15,7 @@ const NavBar = () => {
 
   return (
     <Flex
+      alignItems="center"
       backgroundColor="#ffa8e2"
       flexDirection="row"
       justifyContent="space-between"
@@ -26,6 +27,7 @@ const NavBar = () => {
         h={30}
         w={30}
         cursor="pointer"
+        onClick={() => openMenu()}
       ></Icon>
       <Link exact to="/">
         <Image
@@ -35,14 +37,22 @@ const NavBar = () => {
           cursor="pointer"
         />
       </Link>
-      <Icon
-        fill="white"
-        as={MdShoppingBasket}
-        h={30}
-        w={30}
-        cursor="pointer"
-        onClick={() => openCart()}
-      />
+      <Box>
+        <Icon
+          fill="white"
+          as={MdShoppingBasket}
+          h={30}
+          w={30}
+          cursor="pointer"
+          onClick={() => openCart()}
+        />
+        <Badge
+          backgroundColor="#ff38bd"
+          borderRadius="50%"
+        >
+          {checkout.lineItems?.length}
+        </Badge>
+      </Box>
     </Flex>
   )
 }

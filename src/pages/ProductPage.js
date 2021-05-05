@@ -51,6 +51,3 @@ const ProductPage = () => {
 export default ProductPage
 
 
-
-// advanced video 3 @ 4:22sec
-

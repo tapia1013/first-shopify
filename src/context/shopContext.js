@@ -61,13 +61,29 @@ export class ShopProvider extends Component {
   }
 
 
-  addItemToCheckout = async () => {
+  addItemToCheckout = async (variantId, quantity) => {
+    const lineItemsToAdd = [
+      {
+        variantId: variantId,
+        quantity: parseInt(quantity, 10)
+      }
+    ]
 
+    // addLineItems is provided by shopify...add item to checkout
+    const checkout = await client.checkout.addLineItems(this.state.checkout.id, lineItemsToAdd)
+
+    // update state
+    this.setState({ checkout: checkout })
+
+    // open cart whenever new lineitem is added
+    this.openCart();
   }
 
 
   removeLineItem = async (lineItemIdsToRemove) => {
-
+    const checkout = await client.checkout.removeLineItems(this.state.checkout.id, lineItemIdsToRemove)
+    // update id
+    this.setState({ checkout: checkout })
   }
 
 
